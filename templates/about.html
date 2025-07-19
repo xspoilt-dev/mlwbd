@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}About - MLWBD Movie Scraper{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>About MLWBD Movie Scraper
+                </h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4 class="text-primary">What is this?</h4>
+                        <p>MLWBD Movie Scraper is a web application that helps you search for movies and extract download links from MLWBD websites. It provides a clean, user-friendly interface to interact with movie databases.</p>
+
+                        <h4 class="text-primary mt-4">Features</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-search text-success me-2"></i>Movie search functionality</li>
+                            <li class="mb-2"><i class="fas fa-download text-info me-2"></i>Multiple download options</li>
+                            <li class="mb-2"><i class="fas fa-link text-warning me-2"></i>Direct link extraction</li>
+                            <li class="mb-2"><i class="fas fa-tools text-secondary me-2"></i>Manual link processing</li>
+                            <li class="mb-2"><i class="fas fa-mobile-alt text-primary me-2"></i>Responsive design</li>
+                            <li class="mb-2"><i class="fas fa-code text-danger me-2"></i>RESTful API endpoints</li>
+                        </ul>
+
+                        <h4 class="text-primary mt-4">Technology Stack</h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fab fa-python text-primary me-2"></i>Python Flask</li>
+                                    <li><i class="fas fa-code text-info me-2"></i>Beautiful Soup</li>
+                                    <li><i class="fas fa-globe text-success me-2"></i>Requests</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled">
+                                    <li><i class="fab fa-bootstrap text-primary me-2"></i>Bootstrap 5</li>
+                                    <li><i class="fab fa-js text-warning me-2"></i>JavaScript</li>
+                                    <li><i class="fab fa-html5 text-danger me-2"></i>HTML5</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <i class="fab fa-github fa-4x text-dark mb-3"></i>
+                                <h5>GitHub Repository</h5>
+                                <p class="text-muted small">View the source code and contribute</p>
+                                <a href="https://github.com/xspoilt-dev/mlwbd" target="_blank" class="btn btn-dark">
+                                    <i class="fab fa-github me-2"></i>View on GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card bg-light mt-3">
+                            <div class="card-body text-center">
+                                <i class="fas fa-user fa-3x text-primary mb-3"></i>
+                                <h5>Developer</h5>
+                                <p class="text-muted small">Created by xspoilt-dev</p>
+                                <a href="https://github.com/xspoilt-dev" target="_blank" class="btn btn-outline-primary">
+                                    <i class="fas fa-user me-2"></i>Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Documentation -->
+        <div class="card shadow mt-4">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-code me-2"></i>API Documentation
+                </h4>
+            </div>
+            <div class="card-body">
+                <p>The application provides RESTful API endpoints for integration:</p>
+
+                <div class="accordion" id="apiAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="searchAPI">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSearch">
+                                <code class="text-success me-2">GET</code> /api/search
+                            </button>
+                        </h2>
+                        <div id="collapseSearch" class="accordion-collapse collapse show" data-bs-parent="#apiAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Description:</strong> Search for movies</p>
+                                <p><strong>Parameters:</strong></p>
+                                <ul>
+                                    <li><code>q</code> (required) - Movie search query</li>
+                                </ul>
+                                <p><strong>Example:</strong></p>
+                                <code>GET /api/search?q=avengers</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="linksAPI">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLinks">
+                                <code class="text-success me-2">GET</code> /api/links
+                            </button>
+                        </h2>
+                        <div id="collapseLinks" class="accordion-collapse collapse" data-bs-parent="#apiAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Description:</strong> Get download links for a movie</p>
+                                <p><strong>Parameters:</strong></p>
+                                <ul>
+                                    <li><code>url</code> (required) - Movie URL</li>
+                                </ul>
+                                <p><strong>Example:</strong></p>
+                                <code>GET /api/links?url=https://example.com/movie</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="directAPI">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDirect">
+                                <code class="text-success me-2">GET</code> /api/direct
+                            </button>
+                        </h2>
+                        <div id="collapseDirect" class="accordion-collapse collapse" data-bs-parent="#apiAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Description:</strong> Get direct download link</p>
+                                <p><strong>Parameters:</strong></p>
+                                <ul>
+                                    <li><code>url</code> (required) - Link URL</li>
+                                </ul>
+                                <p><strong>Example:</strong></p>
+                                <code>GET /api/direct?url=https://example.com/link</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Notice -->
+        <div class="alert alert-warning mt-4">
+            <h5><i class="fas fa-exclamation-triangle me-2"></i>Important Notice</h5>
+            <p class="mb-0">This tool is created for educational purposes only. Please respect copyright laws and the terms of service of the websites you interact with. The developers are not responsible for any misuse of this application.</p>
+        </div>
+
+        <!-- Installation Guide -->
+        <div class="card shadow mt-4">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-download me-2"></i>Installation & Usage
+                </h4>
+            </div>
+            <div class="card-body">
+                <h5>Prerequisites</h5>
+                <ul>
+                    <li>Python 3.7 or higher</li>
+                    <li>pip (Python package installer)</li>
+                </ul>
+
+                <h5>Installation Steps</h5>
+                <ol>
+                    <li>Clone the repository:
+                        <pre class="bg-dark text-light p-2 rounded"><code>git clone https://github.com/xspoilt-dev/mlwbd.git</code></pre>
+                    </li>
+                    <li>Navigate to the project directory:
+                        <pre class="bg-dark text-light p-2 rounded"><code>cd mlwbd</code></pre>
+                    </li>
+                    <li>Install dependencies:
+                        <pre class="bg-dark text-light p-2 rounded"><code>pip install -r requirements.txt</code></pre>
+                    </li>
+                    <li>Run the application:
+                        <pre class="bg-dark text-light p-2 rounded"><code>python app.py</code></pre>
+                    </li>
+                    <li>Open your browser and go to:
+                        <pre class="bg-dark text-light p-2 rounded"><code>http://localhost:5000</code></pre>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
